@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 import { AiOutlineFilter, AiOutlineSearch } from "react-icons/ai";
 import MyNavbar from "../../Components/Navbar";
 import Footer from "../../Components/Footer";
@@ -75,7 +75,11 @@ const SearchPage = () => {
             {recipe?.rows?.map((recipeItem) => (
               <div key={recipeItem.recipe_id} className="col">
                 <div className="card">
-                  <a href="#" className="popular-recipe">
+                  <Link
+                    to={`/detailrecipe/${recipeItem.recipe_id}`}
+                    className="popular-recipe"
+                    // onClick={() => handleClick(recipeItem.recipe_id)}
+                  >
                     <img
                       src={recipeItem.picture}
                       className="card-img"
@@ -87,7 +91,7 @@ const SearchPage = () => {
                         {recipeItem.name_food}
                       </h5>
                     </div>
-                  </a>
+                  </Link>
                 </div>
               </div>
             ))}

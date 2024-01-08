@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Footer from "../../Components/Footer";
 import MyNavbar from "../../Components/Navbar";
 import "./style.css";
+import RecipeList from "../../Components/Recipe";
 
 const Profile = () => {
   return (
@@ -41,11 +42,6 @@ const Profile = () => {
                       <li>
                         <a className="dropdown-item" href="#">
                           Change Photo Profile
-                        </a>
-                      </li>
-                      <li>
-                        <a className="dropdown-item" href="#">
-                          Change Password
                         </a>
                       </li>
                     </ul>
@@ -96,32 +92,7 @@ const Profile = () => {
                 </p>
                 <div className="collapse" id="MyRecipe">
                   <div className="card card-body d-flex flex-row">
-                    <Link to="/detailrecipe" className="tes position-relative">
-                      <h2
-                        className="textimg"
-                        style={{
-                          position: "absolute",
-                          bottom: 0,
-                          marginBottom: "1.3em",
-                        }}
-                      >
-                        Pancake
-                      </h2>
-                      <img src="./assets/Rectangle 328.png" alt="" />
-                    </Link>
-                    <Link to="#" className="tes position-relative">
-                      <h2
-                        className="textimg"
-                        style={{
-                          position: "absolute",
-                          bottom: 0,
-                          marginBottom: "1.3em",
-                        }}
-                      >
-                        Burger
-                      </h2>
-                      <img src="./assets/newRecipe314.png" alt="" />
-                    </Link>
+                    <RecipeList />
                   </div>
                 </div>
               </div>

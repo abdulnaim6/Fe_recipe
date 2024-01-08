@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import Styles from "./style.module.css";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { AiOutlineFilter, AiOutlineSearch } from "react-icons/ai";
+import MyNavbar from "../../Components/Navbar";
 
 const SearchPage = () => {
   const [recipe, setRecipe] = useState([]);
@@ -42,6 +43,7 @@ const SearchPage = () => {
 
   return (
     <React.Fragment>
+      <MyNavbar />
       <div className="container mt-5 d-flex justify-content-between">
         <div className="input-group flex-grow-1 me-2 w-50">
           <input

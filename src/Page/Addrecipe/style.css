@@ -1,4 +1,4 @@
-/* .image {
+.image {
   width: 81.25rem;
   height: 30rem;
   border-radius: 15px;
@@ -74,6 +74,13 @@
   line-height: normal;
   margin-top: 2em;
 }
+/* 
+.video {
+  width: 1300px;
+  height: 100px;
+  border-radius: 15px;
+  background: #f6f5f4;
+} */
 
 .btn {
   width: 26.625rem;
@@ -157,4 +164,4 @@ footer {
     margin-bottom: 4em;
     font-size: 1em;
   }
-} */
+}

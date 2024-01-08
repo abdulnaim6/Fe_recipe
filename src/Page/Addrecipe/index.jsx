@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import MyNavbar from "../../Components/Navbar";
 import Footer from "../../Components/Footer";
 import icon from "../../assets/addrecipe.svg";
@@ -19,6 +19,17 @@ const Addrecipe = () => {
   const [isError, setIsError] = React.useState(false);
   const [savePicture, setSaveImage] = React.useState("");
   const [errorMessage, setErrorMessage] = React.useState("");
+  const [isSuccess, setIsSuccess] = useState(false);
+
+  useEffect(() => {
+    if (isSuccess) {
+      const timeout = setTimeout(() => {
+        window.location.reload();
+      }, 2000);
+
+      return () => clearTimeout(timeout);
+    }
+  }, [isSuccess]);
 
   const handleChange = (e) => {
     const value = e.target.value;
@@ -54,6 +65,7 @@ const Addrecipe = () => {
           showConfirmButton: false,
           timer: 3000,
         });
+        setIsSuccess(true);
       })
       .catch((err) => {
         console.log(err.errorMessage);

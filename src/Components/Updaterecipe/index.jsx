@@ -15,6 +15,17 @@ function UpdateRecipe({ show, onHide, recipeId }) {
   const [saveImage, setSaveImage] = useState("");
   const [isError, setIsError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const [isSuccess, setIsSuccess] = useState(false);
+
+  useEffect(() => {
+    if (isSuccess) {
+      const timeout = setTimeout(() => {
+        window.location.reload();
+      }, 2000);
+
+      return () => clearTimeout(timeout);
+    }
+  }, [isSuccess]);
 
   useEffect(() => {
     if (show) {
@@ -65,7 +76,7 @@ function UpdateRecipe({ show, onHide, recipeId }) {
         title: "Success",
         text: "Recipe has been updated successfully!",
       });
-
+      setIsSuccess(true);
       console.log(response);
       onHide(); // Menutup modal setelah berhasil update
     } catch (err) {

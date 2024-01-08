@@ -5,6 +5,7 @@ import MyNavbar from "../../Components/Navbar";
 import Footer from "../../Components/Footer";
 import { useNavigate, useParams } from "react-router-dom";
 import { FaPlay } from "react-icons/fa";
+import img1 from "../../assets/Ellipse 127 (1).svg";
 
 const DetailRecipe = () => {
   const navigate = useNavigate();
@@ -96,7 +97,7 @@ const DetailRecipe = () => {
                   </div>
                   <div className="col-12">
                     <div className="ucomment d-flex">
-                      <img src="/assets/Ellipse 128 (1).svg" alt="" />
+                      <img src={img1} alt="" />
                       <div className="commentuser mx-4">
                         <p className="user">Ayudia</p>
                         <p className="cmnt">

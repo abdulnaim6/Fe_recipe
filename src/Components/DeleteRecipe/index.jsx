@@ -19,7 +19,7 @@ const DeleteConfirmationModal = ({ show, onHide, onConfirm }) => {
             onHide();
           }}
         >
-          Delete
+          Yes
         </Button>
       </Modal.Footer>
     </Modal>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams, Link } from "react-router-dom";
 
 const RecipeList = () => {
   const [recipe, setRecipe] = useState([]);
@@ -22,17 +22,11 @@ const RecipeList = () => {
       console.log(error);
     }
   };
-  const handleSort = (e) => {
-    e.preventDefault();
-    setSort(sort === "ASC" ? "DESC" : "ASC");
-    handleSearch();
-  };
 
   const handleClick = (recipe_id) => {
     console.log("Clicked on recipe with ID:", recipe_id);
     navigate(`/detailrecipe/${recipe_id}`);
   };
-
   useEffect(() => {
     handleSearch();
   }, []);
@@ -44,7 +38,11 @@ const RecipeList = () => {
           {recipe?.rows?.map((recipeItem) => (
             <div key={recipeItem.recipe_id} className="col">
               <div className="card">
-                <a href="#" className="popular-recipe">
+                <Link
+                  to={`/detailrecipe/${recipeItem.recipe_id}`}
+                  className="popular-recipe"
+                  // onClick={() => handleClick(recipeItem.recipe_id)}
+                >
                   <img
                     src={recipeItem.picture}
                     className="card-img"
@@ -56,7 +54,7 @@ const RecipeList = () => {
                       {recipeItem.name_food}
                     </h5>
                   </div>
-                </a>
+                </Link>
               </div>
             </div>
           ))}

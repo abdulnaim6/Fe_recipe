@@ -142,7 +142,7 @@ p.share {
 @media screen and (max-width: 1000px) {
   .image img {
     justify-content: center;
-    width: 100%;
+    width: 120%;
     height: 350px;
   }
   iframe {

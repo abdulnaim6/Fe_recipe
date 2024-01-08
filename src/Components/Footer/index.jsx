@@ -1,4 +1,5 @@
 import React from "react";
+import "./style.css";
 
 const Footer = () => {
   return (
@@ -6,7 +7,7 @@ const Footer = () => {
       <footer>
         <div
           className="container-fluid text-center d-flex justify-items-center align-items-center flex-column mt-5 p-5"
-          style={{ background: "#EFC81A" }}
+          style={{ background: "#EFC81A", width: "100vw" }}
         >
           <div className="row">
             <div className="col-12">

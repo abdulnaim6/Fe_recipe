@@ -1,0 +1,17 @@
+.foot {
+  color: #707070;
+  font-family: Poppins;
+  font-weight: 400;
+  line-height: 24px;
+  text-transform: capitalize;
+  text-decoration: none;
+}
+h1.foth1 {
+  color: #2e266f;
+  font-family: Airbnb Cereal App;
+  font-size: 4.5rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 5.625rem;
+  text-transform: capitalize;
+}

@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import Footer from "../../Components/Footer";
 import MyNavbar from "../../Components/Navbar";
 import "./style.css";
-import RecipeList from "../../Components/Recipe";
+import { FaEdit, FaTrash } from "react-icons/fa";
+import MyRecipe from "../../Components/MyRecipe";
 
 const Profile = () => {
   return (
@@ -92,7 +93,7 @@ const Profile = () => {
                 </p>
                 <div className="collapse" id="MyRecipe">
                   <div className="card card-body d-flex flex-row">
-                    <RecipeList />
+                    <MyRecipe />
                   </div>
                 </div>
               </div>

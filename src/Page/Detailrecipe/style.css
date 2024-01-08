@@ -1,0 +1,165 @@
+.navbar {
+  color: #2e266f;
+  text-align: center;
+  font-family: Airbnb Cereal App;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+h1 {
+  color: #2e266f;
+  font-family: Airbnb Cereal App;
+  font-size: 4.5rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 5.625rem; /* 125% */
+  text-transform: capitalize;
+  margin-bottom: 4.5rem;
+}
+.image img {
+  width: 67.625rem;
+  height: 43.75rem;
+}
+
+h2 {
+  color: #3f3a3a;
+  font-family: Airbnb Cereal App;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 62px; /* 129.167% */
+  text-transform: capitalize;
+  margin-top: 6.8125rem;
+  margin-bottom: 2.625rem;
+}
+
+.ucomment img {
+  width: 64px;
+  height: 64px;
+}
+p.user {
+  color: #000;
+  font-family: Airbnb Cereal App;
+  font-size: 24px;
+  font-style: bold;
+  font-weight: 500;
+  line-height: 62px;
+  text-transform: capitalize;
+  margin-top: -0.7em;
+}
+
+p.cmnt {
+  color: #000;
+  font-family: Airbnb Cereal App;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 62px;
+  text-transform: capitalize;
+  opacity: 60%;
+  margin-top: -1.4em;
+}
+
+p.desk {
+  color: #000;
+  font-family: Airbnb Cereal App;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  text-transform: capitalize;
+  margin-top: -1.25rem;
+}
+
+.form-control {
+  width: 81.25rem;
+  height: 2rem;
+  border-radius: 15px;
+  background: #f6f5f4;
+}
+
+.btn {
+  width: 26.625rem;
+  border-radius: 6px;
+  background: #efc81a;
+}
+
+.footp {
+  color: #707070;
+  font-family: Poppins;
+  font-weight: 400;
+  line-height: 24px;
+  text-transform: capitalize;
+  text-decoration: none;
+}
+
+p.share {
+  color: #707070;
+  font-family: Airbnb Cereal App;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+@media screen and (max-width: 700px) {
+  .container-fluid {
+    width: 100%;
+  }
+
+  h1 {
+    font-size: 2em;
+    margin-bottom: -0.1rem;
+    line-height: 1.5em;
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 1.5em;
+    margin-top: -0.5em;
+    text-align: center;
+  }
+
+  p.desk {
+    font-size: 1em;
+  }
+
+  span.foot {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: -2em;
+    margin-bottom: -3em;
+    padding: 3em;
+  }
+  p.cmnt {
+    font-size: 13px;
+    margin-top: -3em;
+    line-height: 3em;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .image img {
+    justify-content: center;
+    width: 100%;
+    height: 350px;
+  }
+  iframe {
+    width: 100%;
+  }
+  .btn {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 1050px) {
+  .container a.nav {
+    margin-right: 2em;
+  }
+
+  p.share {
+    margin-top: -4em;
+    margin-bottom: 4em;
+  }
+}

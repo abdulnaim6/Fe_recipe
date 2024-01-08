@@ -1,0 +1,160 @@
+/* .image {
+  width: 81.25rem;
+  height: 30rem;
+  border-radius: 15px;
+  background: #f6f5f4;
+  object-fit: contain;
+}
+
+#image {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+#icon {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.addimg {
+  color: #666;
+  text-align: center;
+  font-family: Airbnb Cereal App;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin-top: 1em;
+}
+
+#tittle {
+  width: 81.25rem;
+  height: 6.25rem;
+  border-radius: 15px;
+  background: #f6f5f4;
+  color: #666;
+  text-align: start;
+  font-family: Airbnb Cereal App;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  padding-left: 2em;
+  object-fit: contain;
+}
+
+#ingredients {
+  width: 500px;
+  height: 380px;
+  border-radius: 15px;
+  background: #f6f5f4;
+  color: #666;
+  font-family: Airbnb Cereal App;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+#video {
+  width: 500px;
+  height: 380px;
+  border-radius: 15px;
+  background: #f6f5f4;
+  color: #666;
+  font-family: Airbnb Cereal App;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin-top: 2em;
+}
+
+.btn {
+  width: 26.625rem;
+  border-radius: 6px;
+  background: #efc81a;
+}
+
+.fot {
+  color: #2e266f;
+  text-align: center;
+  font-family: Airbnb Cereal App;
+  font-size: 72px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 48px;
+  text-transform: capitalize;
+}
+
+.share {
+  color: #707070;
+  text-align: center;
+  font-family: Airbnb Cereal App;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  text-transform: capitalize;
+}
+
+.foot a {
+  color: #707070;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  text-transform: capitalize;
+  text-decoration: none;
+}
+
+footer {
+  width: 100%;
+  background: #efc81a;
+}
+
+@media screen and (max-width: 600px) {
+  .foter h1.fot {
+    font-size: 2em;
+    margin-bottom: -0.1rem;
+    line-height: 1.5em;
+    text-align: center;
+  }
+
+  .foter p.share {
+    font-size: 1.5em;
+    margin-top: -0.5em;
+    text-align: center;
+  }
+
+  span.foot {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: -2em;
+    margin-bottom: -3em;
+    padding: 3em;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 1050px) {
+  h1.fot {
+    font-size: 3em;
+  }
+  p.share {
+    margin-top: -2em;
+    margin-bottom: 4em;
+    font-size: 1em;
+  }
+} */

@@ -1,0 +1,142 @@
+.navbar {
+  color: #2e266f;
+  text-align: center;
+  font-family: Airbnb Cereal App;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.navbir {
+  margin-left: 5em;
+}
+.vidleft img {
+  width: 70em;
+  height: 38.75em;
+  object-fit: contain;
+}
+.vidleft h1.h1 {
+  color: #000;
+  font-family: Airbnb Cereal App;
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  width: 45%;
+}
+
+.vidleft p {
+  color: #aaa;
+  font-family: Airbnb Cereal App;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.vidright h1.h2 {
+  color: #000;
+  font-family: Airbnb Cereal App;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.3px;
+  margin-left: -15em;
+}
+
+.vidright h5 {
+  color: #000;
+  font-family: Airbnb Cereal App;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.3px;
+}
+
+.vidright p {
+  color: #aaa;
+  font-family: Airbnb Cereal App;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.3px;
+}
+
+@media screen and (max-width: 1200px) {
+  .vidleft {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .vidleft img {
+    width: 40em;
+  }
+
+  .vidright {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .vidright img {
+    width: 100%;
+  }
+
+  h1.h1 {
+    font-size: 1.5em;
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 1050px) {
+  .navbir a.nav {
+    margin-right: 2em;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .vidleft {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .vidleft img {
+    width: 45em;
+  }
+
+  .vidright {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .container {
+    width: 100%;
+  }
+  .vidleft img {
+    width: 30em;
+  }
+  .vidleft {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .vidright {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+}

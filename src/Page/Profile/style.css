@@ -1,0 +1,141 @@
+.navbar {
+  color: #2e266f;
+  text-align: center;
+  font-family: Airbnb Cereal App;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-decoration: none;
+}
+
+.fotoprofile {
+  width: 10.75rem;
+  height: 10.75rem;
+  background: #e7e7e7;
+  border-radius: 100%;
+  background: url(./foto/Ellipse\ 127.png) lightgray 50% / cover no-repeat;
+  margin-bottom: 2%;
+}
+
+#dropdown {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.dropdown-menu {
+  width: 19.938rem;
+  height: 5rem;
+  text-align: center;
+}
+
+.drop {
+  margin-bottom: 5%;
+}
+.nameprofile {
+  color: #000;
+  text-align: center;
+  font-family: Airbnb Cereal App;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.tes {
+  margin-right: 3em;
+  width: 23.125rem;
+  height: 15.625rem;
+  border-radius: 10px;
+}
+
+.collapse img {
+  width: 23.125em;
+  height: 15.625em;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.collapse a h2 {
+  color: #fff;
+  font-family: Airbnb Cereal App;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-transform: capitalize;
+  width: 50%;
+}
+
+.btn {
+  color: #666;
+  text-align: center;
+  font-family: Airbnb Cereal App;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+span.foot a {
+  color: #707070;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  text-transform: capitalize;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 846px) {
+  #dro {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .collapse a h2 {
+    color: #fff;
+    font-family: Airbnb Cereal App;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-transform: capitalize;
+    width: 50%;
+  }
+
+  .card a {
+    margin-bottom: 1em;
+  }
+  .card a img {
+    width: 100%;
+  }
+  .card {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1em;
+  }
+
+  footer {
+    background: #efc81a;
+    width: 100%;
+    bottom: 0;
+    height: 7vh;
+  }
+
+  .foot {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+}

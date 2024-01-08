@@ -1,0 +1,147 @@
+.navbar {
+  color: #2e266f;
+  text-align: center;
+  font-family: Airbnb Cereal App;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-decoration-line: underline;
+}
+
+.popular-recipe h5 {
+  color: #3f3a3a;
+  font-family: Airbnb Cereal App;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-transform: capitalize;
+}
+
+.awal {
+  color: #2e266f;
+  font-family: Airbnb Cereal App;
+  font-size: 72px;
+  font-style: normal;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.pop {
+  color: #3f3a3a;
+  font-family: Airbnb Cereal App;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 62px;
+  text-transform: capitalize;
+  border-left: 0.3em solid #efc81a;
+  padding-left: 3%;
+}
+
+.h1 {
+  color: #3f3a3a;
+  font-family: Airbnb Cereal App;
+  font-size: 56px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.p1 {
+  color: #3f3a3a;
+  font-family: Airbnb Cereal App;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 32px;
+  letter-spacing: 0.96px;
+}
+
+.btn a {
+  color: #fff;
+  font-family: Airbnb Cereal App;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 1.12px;
+  text-decoration: none;
+}
+
+.foot {
+  color: #707070;
+  font-family: Poppins;
+  font-weight: 400;
+  line-height: 24px;
+  text-transform: capitalize;
+  text-decoration: none;
+}
+h1.foth1 {
+  color: #2e266f;
+  font-family: Airbnb Cereal App;
+  font-size: 4.5rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 5.625rem;
+  text-transform: capitalize;
+}
+
+@media screen and (max-width: 560px) {
+  h1.awal {
+    font-size: 40px;
+  }
+  span.foot {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: -2em;
+    margin-bottom: -3em;
+    padding: 3em;
+  }
+
+  .popular-recipe h5 {
+    font-size: 17px;
+  }
+
+  .h1 {
+    font-size: 25px;
+  }
+
+  .p1 {
+    font-size: 17px;
+  }
+
+  .pop {
+    font-size: 25px;
+  }
+  h1.foth1 {
+    font-size: 2em;
+  }
+}
+@media screen and (min-width: 1050px) {
+  .container a.nav {
+    margin-right: 2em;
+  }
+
+  .container .login {
+    margin-right: -2em;
+  }
+  .button-search {
+    width: 670px;
+    height: 90px;
+  }
+  .col-lg-7 img {
+    margin-left: 6em;
+    width: 700px;
+    height: 700px;
+    object-fit: contain;
+  }
+  img .g1 {
+    width: 830px;
+    height: 830px;
+    margin-right: em;
+  }
+}

@@ -2,7 +2,7 @@
  <img height="150" width="250" src="./src/assets/barbecue 1 (1).png"  />
 </div>
 
-# Mama recipe Backend Application
+# Mama recipe Frontend Application
 
 Mamarecipe was created for food lovers or people who are just learning to cook and are also looking for new recipes, where on Mama Recipe's website there are various kinds of food recipes as well as videos from that food.
 
@@ -83,6 +83,7 @@ Start the project
 <br />
 
 ## Related Project
+⚡[`Responsive Web`](https://github.com/abdulnaim6/Responsive_web)⚡
 
 ⚡[`Backend Recipe`](https://github.com/abdulnaim6/Be_recipe)⚡
 

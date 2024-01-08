@@ -1,16 +1,15 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import Styles from "./style.module.css";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { AiOutlineFilter, AiOutlineSearch } from "react-icons/ai";
 import MyNavbar from "../../Components/Navbar";
+import Footer from "../../Components/Footer";
 
 const SearchPage = () => {
   const [recipe, setRecipe] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [sort, setSort] = useState("ASC");
   const { recipe_id } = useParams();
-  // const location = useLocation();
   const navigate = useNavigate();
 
   const handleSearch = async () => {
@@ -70,25 +69,33 @@ const SearchPage = () => {
         </div>
       </div>
 
-      <div className="container mt-3">
-        <div className="row" style={{ width: "100" }}>
-          {recipe?.rows?.map((recipeItem) => (
-            <div className="col-lg-4 mb-3" key={recipeItem.recipes_id}>
-              <div
-                // className={`bg-primary `}
-                onClick={() => handleClick(recipeItem.recipes_id)}
-              >
-                <img
-                  src={recipeItem.picture}
-                  alt="myrecipe"
-                  style={{ width: 200, height: 150 }}
-                />
-                <h1>{recipeItem.name_food}</h1>
+      <div className="container-fluid">
+        <div className="container">
+          <div className="row row-cols-1 row-cols-md-3 g-4">
+            {recipe?.rows?.map((recipeItem) => (
+              <div key={recipeItem.recipe_id} className="col">
+                <div className="card">
+                  <a href="#" className="popular-recipe">
+                    <img
+                      src={recipeItem.picture}
+                      className="card-img"
+                      alt="..."
+                      style={{ height: "200px", objectFit: "cover" }}
+                    />
+                    <div className="card-img-overlay">
+                      <h5 className="card-title position-absolute bottom-0">
+                        {recipeItem.name_food}
+                      </h5>
+                    </div>
+                  </a>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
+
+      <Footer />
     </React.Fragment>
   );
 };

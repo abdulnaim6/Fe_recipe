@@ -6,6 +6,7 @@ import Cards from "../../Components/Card";
 import { Link, useNavigate } from "react-router-dom";
 import Footer from "../../Components/Footer";
 import axios from "axios";
+import RecipeList from "../../Components/Recipe";
 
 const Home = () => {
   // const [recipe, setRecipe] = useState([]);
@@ -98,7 +99,7 @@ const Home = () => {
         </div>
       </header>
       <Cards />
-
+      <RecipeList />
       <Footer />
     </div>
   );

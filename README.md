@@ -1,5 +1,5 @@
 <div align="center">
- <img height="150" width="250" src="public\barbecue 1 (1).png"  />
+ <img height="150" width="250" src="./src/assets/barbecue 1 (1).png"  />
 </div>
 
 # Mama recipe Backend Application
@@ -76,11 +76,9 @@ Start the project
 
 ## Screenshot
 
-
 ## Authors
 
 💻 [Abdul Naim](https://github.com/abdulnaim6)
-
 
 <br />
 
@@ -89,5 +87,3 @@ Start the project
 ⚡[`Backend Recipe`](https://github.com/abdulnaim6/Be_recipe)⚡
 
 ⚡[`Frontend Recipe`](https://github.com/abdulnaim6/Fe_recipe)⚡
-
-

@@ -5,6 +5,7 @@ import MyNavbar from "../../Components/Navbar";
 import "./style.css";
 import { FaEdit, FaTrash } from "react-icons/fa";
 import MyRecipe from "../../Components/MyRecipe";
+import UpdateProfile from "../../Components/Updaterecipe";
 
 const Profile = () => {
   return (

@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { FaEdit, FaTrash } from "react-icons/fa";
-import Swal from "sweetalert2"; // Import SweetAlert
+import Swal from "sweetalert2";
 import DeleteRecipe from "../DeleteRecipe";
+import UpdateRecipe from "../Updaterecipe";
 
 const MyRecipe = () => {
   const [selectedRecipeId, setSelectedRecipeId] = useState(null);
@@ -11,6 +12,7 @@ const MyRecipe = () => {
   const [recipes, setRecipes] = useState([]);
   const { recipe_id } = useParams();
   const navigate = useNavigate();
+  const [showEditModal, setShowEditModal] = useState(false);
 
   const handleSearch = async () => {
     try {
@@ -27,10 +29,9 @@ const MyRecipe = () => {
     handleSearch();
   }, []);
 
-  const handleEdit = (recipe_id) => {
-    // Logika untuk meng-handle edit
-    console.log("Edit recipe with ID:", recipe_id);
-    // Navigasi atau logika lainnya untuk meng-handle edit
+  const handleUpdateClick = (recipe_id) => {
+    setSelectedRecipeId(recipe_id);
+    setShowEditModal(true);
   };
 
   const handleDeleteClick = (recipeId) => {
@@ -91,7 +92,7 @@ const MyRecipe = () => {
                       <button
                         style={{ width: "40px", height: "40px" }}
                         className="btn btn-outline-primary mx-2"
-                        onClick={() => handleEdit(recipeItem.recipe_id)}
+                        onClick={() => handleUpdateClick(recipeItem.recipe_id)}
                       >
                         <FaEdit />
                       </button>
@@ -118,6 +119,11 @@ const MyRecipe = () => {
         show={showModal}
         onHide={() => setShowModal(false)}
         onConfirm={handleDelete}
+      />
+      <UpdateRecipe
+        show={showEditModal}
+        onHide={() => setShowEditModal(false)}
+        recipeId={selectedRecipeId}
       />
     </div>
   );

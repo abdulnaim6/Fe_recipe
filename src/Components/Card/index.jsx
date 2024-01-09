@@ -39,10 +39,8 @@ const Cards = () => {
               <img src={img1} alt="" className="img-fluid" />
             </Col>
             <Col md={12} lg={5} offset-lg={1}>
-              <h1 className="h1">Healthy Fried Rice (Quick & Easy)</h1>
-              <p className="p1">
-                Quick + Easy Fried Rice with Chicken. Very yummy.
-              </p>
+              <h1 className="h1">Healthy Sandwitch (Quick & Easy)</h1>
+              <p className="p1">Quick + Easy Sanwitch. Very yummy.</p>
               <Button className="btn btn-warning">
                 <a href="detailrecipe.html">Learn More</a>
               </Button>
@@ -68,10 +66,9 @@ const Cards = () => {
               <img src={img2} alt="" className="img-fluid" />
             </Col>
             <Col lg={5} offset-lg={1}>
-              <h1 className="h1">Healthy Bone Broth Ramen (Quick & Easy)</h1>
+              <h1 className="h1">Healthy Donut (Quick & Easy)</h1>
               <p className="p1">
-                Quick + Easy Chicken Bone Broth Ramen - Healthy chicken ramen in
-                a hurry? That’s right!
+                Quick + Easy Donut - Healthy Donut in a hurry? That’s right!
               </p>
               <Button className="btn btn-warning">
                 <a href="#">Learn More</a>

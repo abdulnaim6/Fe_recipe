@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
-import { useNavigate, useParams } from "react-router-dom";
 import { FaEdit, FaTrash } from "react-icons/fa";
 import Swal from "sweetalert2";
 import DeleteRecipe from "../DeleteRecipe";
@@ -10,8 +9,8 @@ const MyRecipe = () => {
   const [selectedRecipeId, setSelectedRecipeId] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [recipes, setRecipes] = useState([]);
-  const { recipe_id } = useParams();
-  const navigate = useNavigate();
+  // const { recipe_id } = useParams();
+  // const navigate = useNavigate();
   const [showEditModal, setShowEditModal] = useState(false);
 
   const handleSearch = async () => {
@@ -44,22 +43,17 @@ const MyRecipe = () => {
       await axios.delete(
         `${import.meta.env.VITE_API_URL}/deleterecipe/${selectedRecipeId}`
       );
-
-      // Tampilkan SweetAlert setelah berhasil menghapus resep
       Swal.fire({
         icon: "success",
         title: "Success",
         text: "Recipe has been deleted successfully!",
       });
-
-      // Update daftar resep setelah penghapusan
       setRecipes(
         recipes.filter((recipe) => recipe.recipe_id !== selectedRecipeId)
       );
       setShowModal(false);
     } catch (error) {
       console.log(error);
-      // Tampilkan SweetAlert jika terjadi kesalahan
       Swal.fire({
         icon: "error",
         title: "Error",
@@ -114,7 +108,6 @@ const MyRecipe = () => {
         </div>
       </div>
 
-      {/* Komponen modal untuk konfirmasi delete */}
       <DeleteRecipe
         show={showModal}
         onHide={() => setShowModal(false)}

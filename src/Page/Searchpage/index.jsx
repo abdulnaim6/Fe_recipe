@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
-import { AiOutlineFilter, AiOutlineSearch } from "react-icons/ai";
+import { Link } from "react-router-dom";
+import { AiOutlineSearch } from "react-icons/ai";
 import MyNavbar from "../../Components/Navbar";
 import Footer from "../../Components/Footer";
 
@@ -9,11 +9,10 @@ const SearchPage = () => {
   const [recipe, setRecipe] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [sort, setSort] = useState("ASC");
-  const { recipe_id } = useParams();
-  const navigate = useNavigate();
+  // const { recipe_id } = useParams();
+  // const navigate = useNavigate();
 
   const handleSearch = async () => {
-    // navigate(`/search?keyword=${searchQuery}&sort=${sort}`);
     try {
       const newData = await axios.get(
         `${
@@ -31,10 +30,10 @@ const SearchPage = () => {
     handleSearch();
   };
 
-  const handleClick = (recipe_id) => {
-    console.log("Clicked on recipe with ID:", recipe_id);
-    navigate(`/detailrecipe/${recipe_id}`);
-  };
+  // const handleClick = (recipe_id) => {
+  //   console.log("Clicked on recipe with ID:", recipe_id);
+  //   navigate(`/detailrecipe/${recipe_id}`);
+  // };
 
   useEffect(() => {
     handleSearch();

@@ -21,7 +21,7 @@ function UpdateRecipe({ show, onHide, recipeId }) {
     if (isSuccess) {
       const timeout = setTimeout(() => {
         window.location.reload();
-      }, 2000);
+      }, 1000);
 
       return () => clearTimeout(timeout);
     }

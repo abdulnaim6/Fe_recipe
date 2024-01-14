@@ -1,35 +1,25 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import MyNavbar from "../../Components/Navbar";
 import Footer from "../../Components/Footer";
 import icon from "../../assets/addrecipe.svg";
 import "./style.css";
 import Button from "../../Components/Button";
-import axios from "axios";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
+import { InputRecipe } from "../../config/redux/action/recipeAction";
 
 const Addrecipe = () => {
-  const [data, setData] = React.useState({
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [data, setData] = useState({
     name_food: "",
     picture: "",
     ingrediens: "",
     video: "",
   });
-  console.log(data);
-
-  const [isError, setIsError] = React.useState(false);
-  const [savePicture, setSaveImage] = React.useState("");
-  const [errorMessage, setErrorMessage] = React.useState("");
-  const [isSuccess, setIsSuccess] = useState(false);
-
-  useEffect(() => {
-    if (isSuccess) {
-      const timeout = setTimeout(() => {
-        window.location.reload();
-      }, 2000);
-
-      return () => clearTimeout(timeout);
-    }
-  }, [isSuccess]);
+  const [isError, setIsError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleChange = (e) => {
     const value = e.target.value;
@@ -41,38 +31,37 @@ const Addrecipe = () => {
 
   const handleUpload = (e) => {
     const uploader = e.target.files[0];
-    setSaveImage(uploader);
-    console.log(uploader);
+    setData({
+      ...data,
+      picture: uploader,
+    });
   };
 
-  function handleSubmit(e) {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
     const productData = new FormData();
     productData.append("name_food", data.name_food);
-    productData.append("picture", savePicture);
+    productData.append("picture", data.picture);
     productData.append("ingrediens", data.ingrediens);
     productData.append("video", data.video);
 
-    axios
-      .post(`${import.meta.env.VITE_API_URL}/addrecipe`, productData)
-      .then((response) => {
-        console.log(response);
-
-        Swal.fire({
-          icon: "success",
-          title: "Recipe Posted Successfully!",
-          showConfirmButton: false,
-          timer: 3000,
-        });
-        setIsSuccess(true);
-      })
-      .catch((err) => {
-        console.log(err.errorMessage);
-        setIsError(true);
-        setErrorMessage("Data Error");
+    try {
+      await dispatch(InputRecipe(productData));
+      Swal.fire({
+        icon: "success",
+        title: "Recipe Posted Successfully!",
       });
-  }
+      navigate("/");
+    } catch (error) {
+      console.log(error);
+      setIsError(true);
+      setErrorMessage("Data Error");
+      Swal.fire({
+        icon: "error",
+        title: "Add Recipe Failed",
+      });
+    }
+  };
 
   return (
     <React.Fragment>
@@ -160,7 +149,7 @@ const Addrecipe = () => {
           <div className="container-fluid my-5">
             <div className="row">
               <div className="col-12 d-flex justify-content-center align-items-center">
-                <Button text="Post" type="button" />
+                <Button text="Post" type="submit" />
               </div>
             </div>
           </div>

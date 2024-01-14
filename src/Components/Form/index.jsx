@@ -1,23 +1,31 @@
-import React from "react";
-import "./style.css";
+import PropTypes from "prop-types";
 
-const Form = (props) => {
+const Form = ({ type = "text", label, placeholder, name, value, onChange }) => {
   return (
     <div>
-      <label htmlFor="email_address" className="form-label">
-        {props.label}
+      <label htmlFor={name} className="form-label">
+        {label}
       </label>
       <input
-        name={props.name}
-        type={props.type}
+        name={name}
+        type={type}
         className="form-control"
-        id="exampleFormControlInput1"
-        placeholder={props.placeholder}
-        value={props.value}
-        onChange={props.onChange}
+        id={name}
+        placeholder={placeholder}
+        value={value}
+        onChange={onChange}
       />
     </div>
   );
+};
+
+Form.propTypes = {
+  type: PropTypes.string,
+  label: PropTypes.string.isRequired,
+  placeholder: PropTypes.string,
+  name: PropTypes.string.isRequired,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  onChange: PropTypes.func.isRequired,
 };
 
 export default Form;

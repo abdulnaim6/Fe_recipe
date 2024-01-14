@@ -1,12 +1,11 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
-import { useLocation, useNavigate, useParams, Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const RecipeList = () => {
   const [recipe, setRecipe] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [sort, setSort] = useState("ASC");
-  const { recipe_id } = useParams();
   const navigate = useNavigate();
 
   const handleSearch = async () => {

@@ -1,43 +1,28 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { AiOutlineSearch } from "react-icons/ai";
+import { Link } from "react-router-dom";
 import MyNavbar from "../../Components/Navbar";
 import Footer from "../../Components/Footer";
+import { useDispatch, useSelector } from "react-redux";
+import { GetRecipe } from "../../config/redux/action/recipeAction";
 
 const SearchPage = () => {
-  const [recipe, setRecipe] = useState([]);
+  const { loading, recipe } = useSelector((state) => state.recipe);
+  const dispatch = useDispatch();
   const [searchQuery, setSearchQuery] = useState("");
   const [sort, setSort] = useState("ASC");
-  // const { recipe_id } = useParams();
-  // const navigate = useNavigate();
 
-  const handleSearch = async () => {
-    try {
-      const newData = await axios.get(
-        `${
-          import.meta.env.VITE_API_URL
-        }/search?sort=${sort}&keyword=${searchQuery}`
-      );
-      setRecipe(newData.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-  const handleSort = (e) => {
-    e.preventDefault();
-    setSort(sort === "ASC" ? "DESC" : "ASC");
-    handleSearch();
+  const handleSearch = () => {
+    dispatch(GetRecipe({ sort, keyword: searchQuery }));
   };
 
-  // const handleClick = (recipe_id) => {
-  //   console.log("Clicked on recipe with ID:", recipe_id);
-  //   navigate(`/detailrecipe/${recipe_id}`);
-  // };
+  const handleSort = () => {
+    setSort((prevSort) => (prevSort === "ASC" ? "DESC" : "ASC"));
+  };
 
   useEffect(() => {
-    handleSearch();
-  }, []);
+    dispatch(GetRecipe({ sort, keyword: searchQuery }));
+  }, [dispatch, sort, searchQuery]);
 
   return (
     <React.Fragment>
@@ -61,7 +46,7 @@ const SearchPage = () => {
           <button
             className="form-select form-select-md"
             aria-label="Default select example"
-            onClick={(e) => handleSort(e, "name_food")}
+            onClick={handleSort}
           >
             Sort by
           </button>
@@ -69,6 +54,7 @@ const SearchPage = () => {
       </div>
 
       <div className="container-fluid">
+        {loading && <h3>Loading....</h3>}
         <div className="container">
           <div className="row row-cols-1 row-cols-md-3 g-4">
             {recipe?.rows?.map((recipeItem) => (

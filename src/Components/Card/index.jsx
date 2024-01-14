@@ -1,6 +1,5 @@
-import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Container, Row, Col, Button, Card } from "react-bootstrap";
+import { Container, Row, Col, Button } from "react-bootstrap";
 import img1 from "../../assets/Popular For You.png";
 import img2 from "../../assets/Rectangle 327.png";
 import "./style.css";
@@ -9,6 +8,7 @@ import axios from "axios";
 
 const Cards = () => {
   const [recipe, setRecipe] = useState([]);
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const getRecipe = () => {

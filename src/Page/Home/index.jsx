@@ -1,11 +1,9 @@
-import React, { useState, useEffect } from "react";
 import { Navbar, Nav } from "react-bootstrap";
 import "./style.css";
 import img1 from "../../assets/Rectangle 313 (1).png";
 import Cards from "../../Components/Card";
 import { Link, useNavigate } from "react-router-dom";
 import Footer from "../../Components/Footer";
-import axios from "axios";
 import RecipeList from "../../Components/Recipe";
 
 const Home = () => {
@@ -48,18 +46,27 @@ const Home = () => {
               />
               <Navbar.Collapse id="navbarNavAltMarkup">
                 <Nav className="navbar-nav my-custom-navbar-nav">
-                  <Link style={{ marginRight: "20px" }} to="/">
+                  <Link
+                    style={{ marginRight: "20px", textDecoration: "none" }}
+                    to="/"
+                  >
                     Home
                   </Link>
-                  <Link style={{ marginRight: "20px" }} to="/addRecipe">
+                  <Link
+                    style={{ marginRight: "20px", textDecoration: "none" }}
+                    to="/addRecipe"
+                  >
                     Add recipes
                   </Link>
-                  <Link style={{ marginLeft: "20px" }} to="/profile">
+                  <Link
+                    style={{ marginLeft: "20px", textDecoration: "none" }}
+                    to="/profile"
+                  >
                     Profile
                   </Link>
                 </Nav>
                 <div className="login" style={{ marginLeft: "40em" }}>
-                  <Link to="/login">
+                  <Link style={{ textDecoration: "none" }} to="/login">
                     <span style={{ marginLeft: "0.5em" }}>Login</span>
                   </Link>
                 </div>

@@ -1,18 +1,54 @@
-// import React from "react";
-
-// const Register = () => {
-//   return <div>Register</div>;
-// };
-
-// export default Register;
-import React from "react";
+import React, { useState } from "react";
 import BgLeft from "../../Components/BgLeft/index";
 import Form from "../../Components/Form/index";
 import Button from "../../Components/Button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Regis } from "../../config/redux/action/userAction";
+import Swal from "sweetalert2";
 import "./style.css";
 
 const Register = () => {
+  const { loading } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const [form, setForm] = useState({
+    name: "",
+    email_address: "",
+    phone: "",
+    password: "",
+    verify_password: "",
+  });
+
+  const handleChange = (e) => {
+    const value = e.target.value;
+    console.log("handleChange", e.target.name, value);
+    setForm({
+      ...form,
+      [e.target.name]: value,
+    });
+  };
+  console.log(form);
+
+  const handleRegister = async () => {
+    try {
+      const user = await dispatch(Regis(form));
+      console.log("data user", user);
+      Swal.fire({
+        icon: "success",
+        title: "Register Successful",
+      });
+      navigate("/login");
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: "Register Failed",
+        text: error.data.message,
+      });
+    }
+  };
+
   return (
     <React.Fragment>
       <div className="container-fluid">
@@ -21,7 +57,12 @@ const Register = () => {
             <BgLeft />
           </div>
           <div id="right-section" className="col-sm-12 col-md-8 col-lg-6">
-            <form>
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                handleRegister();
+              }}
+            >
               <section id="register">
                 <div className="welcome">
                   <h2>Welcome</h2>
@@ -33,6 +74,8 @@ const Register = () => {
                     name="name"
                     type="text"
                     placeholder="Name"
+                    value={form.name}
+                    onChange={handleChange}
                   />
                 </div>
                 <div className="wrapper-form">
@@ -41,22 +84,28 @@ const Register = () => {
                     name="email_address"
                     type="text"
                     placeholder="Enter email_address"
+                    value={form.email_address}
+                    onChange={handleChange}
                   />
                 </div>
                 <div className="wrapper-form">
                   <Form
                     label="phone Number"
-                    name="phone_number"
+                    name="phone"
                     type="text"
                     placeholder="08xxxxxxx"
+                    value={form.phone}
+                    onChange={handleChange}
                   />
                 </div>
                 <div className="wrapper-form">
                   <Form
                     label="Create New Password"
-                    name="create_new_password"
+                    name="password"
                     type="password"
                     placeholder="Create New Password"
+                    value={form.password}
+                    onChange={handleChange}
                   />
                 </div>
                 <div className="wrapper-form">
@@ -65,6 +114,8 @@ const Register = () => {
                     name="verify_password"
                     type="password"
                     placeholder="Verify Password"
+                    value={form.verify_password}
+                    onChange={handleChange}
                   />
                 </div>
                 <div className="check">
@@ -79,9 +130,8 @@ const Register = () => {
                   </label>
                 </div>
                 <div className="d-grid">
-                  <Link to="/login">
-                    <Button href="#" text="Register Account" />
-                  </Link>
+                  {loading ? "loading..." : "Register"}
+                  <Button href="#" text="Register Account" />
                 </div>
                 <div className="sign-up">
                   <p>

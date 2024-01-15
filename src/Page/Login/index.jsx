@@ -98,7 +98,7 @@ const Login = () => {
                   </label>
                 </div>
                 <div className="button d-grid">
-                  {loading ? "loading..." : "login"}
+                  {loading}
                   <Button
                     // onClick={handleLogin}
                     buttonName="Log In"

@@ -33,3 +33,55 @@ export const GetRecipe =
       throw error.response;
     }
   };
+
+export const GetRecipeByID =
+  ({ recipe_id }) =>
+  async (dispatch) => {
+    try {
+      dispatch({ type: "GET_RECIPE_REQUEST" });
+      const response = await api.get(`/recipe/${recipe_id}`);
+      const recipe = response.data;
+      dispatch({ type: "GET_RECIPE_SUCCESS", payload: recipe });
+      return recipe;
+    } catch (error) {
+      dispatch({
+        type: "GET_RECIPE_FAILURE",
+        payload: error.response.data.message,
+      });
+      throw error.response;
+    }
+  };
+
+export const Update = (data) => async (dispatch) => {
+  try {
+    dispatch({ type: "UPDATE_RECIPE_REQUEST" });
+    const response = await api.put("/updaterecipe", data);
+    const recipe = response.data;
+    dispatch({ type: "UPDATE_RECIPE_SUCCESS", payload: recipe });
+    return recipe;
+  } catch (error) {
+    dispatch({
+      type: "UPDATE_RECIPE_FAILURE",
+      payload: error.response.data.message,
+    });
+    throw error.response;
+  }
+};
+
+export const Delete =
+  ({ recipe_id }) =>
+  async (dispatch) => {
+    try {
+      dispatch({ type: "DELETE_RECIPE_REQUEST" });
+      const response = await api.put(`/deleterecipe/${recipe_id}`);
+      const recipe = response.data;
+      dispatch({ type: "DELETE_RECIPE_SUCCESS", payload: recipe });
+      return recipe;
+    } catch (error) {
+      dispatch({
+        type: "DELETE_RECIPE_FAILURE",
+        payload: error.response.data.message,
+      });
+      throw error.response;
+    }
+  };

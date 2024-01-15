@@ -1,5 +1,5 @@
 const initialState = {
-  recipe: {},
+  recipe: [],
   loading: false,
   error: "",
 };
@@ -52,6 +52,23 @@ const recipeReducer = (state = initialState, action) => {
         recipe: action.payload,
       };
     case "UPDATE_RECIPE_FAILURE":
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+      };
+    case "DELETE_RECIPE_REQUEST":
+      return {
+        ...state,
+        loading: true,
+      };
+    case "DELETE_RECIPE_SUCCESS":
+      return {
+        ...state,
+        loading: false,
+        recipe: action.payload,
+      };
+    case "DELETE_RECIPE_FAILURE":
       return {
         ...state,
         loading: false,

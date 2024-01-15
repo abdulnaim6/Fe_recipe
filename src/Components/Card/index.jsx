@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import img1 from "../../assets/Popular For You.png";
 import img2 from "../../assets/Rectangle 327.png";
@@ -8,8 +8,8 @@ import axios from "axios";
 
 const Cards = () => {
   const [recipe, setRecipe] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const navigate = useNavigate();
+  // const [loading, setLoading] = useState(false);
+  // const navigate = useNavigate();
 
   const getRecipe = () => {
     axios.get(`${import.meta.env.VITE_API_URL}/recipe`).then((res) => {

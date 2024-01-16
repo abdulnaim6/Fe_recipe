@@ -34,7 +34,7 @@ const Profile = () => {
                     </ul>
                   </div>
                 </div>
-                <h1 className="nameprofile">Garneta Sharina</h1>
+                <h1 className="nameprofile">Abdul Naim</h1>
               </div>
             </div>
           </div>

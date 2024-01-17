@@ -1,36 +1,37 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable no-unused-vars */
 import { useState, useEffect } from "react";
 import { Form } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Swal from "sweetalert2";
-import { useDispatch } from "react-redux";
-import { Update } from "../../config/redux/action/recipeAction";
+import axios from "axios";
 
 function UpdateRecipe({ show, onHide, recipeId }) {
-  const dispatch = useDispatch();
   const [recipe, setRecipe] = useState({
     name_food: "",
     ingrediens: "",
     picture: "",
     video: "",
   });
+
   const [isError, setIsError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
-  // useEffect(() => {
-  // if (show) {
-  //   axios
-  //     .get(`${import.meta.env.VITE_API_URL}/recipe/${recipeId}`)
-  //     .then((response) => {
-  //       setRecipe(response.data);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err.message);
-  //       setIsError(true);
-  //       setErrorMessage("Failed to fetch recipe data");
-  //     });
-  // }
-  // }, [show, recipeId]);
+  useEffect(() => {
+    if (show) {
+      axios
+        .get(`${import.meta.env.VITE_API_URL}/recipe/${recipeId}`)
+        .then((response) => {
+          setRecipe(response.data);
+        })
+        .catch((err) => {
+          console.log(err.message);
+          setIsError(true);
+          setErrorMessage("Failed to fetch recipe data");
+        });
+    }
+  }, [show, recipeId]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -57,7 +58,10 @@ function UpdateRecipe({ show, onHide, recipeId }) {
     recipeUpdate.append("video", recipe.video);
 
     try {
-      await dispatch(Update(recipeId));
+      await axios.put(
+        `${import.meta.env.VITE_API_URL}/updaterecipe/${recipeId}`,
+        recipeUpdate
+      );
       Swal.fire({
         icon: "success",
         title: "Success",

@@ -1,6 +1,6 @@
-import React from "react";
 import { Modal, Button } from "react-bootstrap";
 
+// eslint-disable-next-line react/prop-types
 const DeleteConfirmationModal = ({ show, onHide, onConfirm }) => {
   return (
     <Modal show={show} onHide={onHide}>

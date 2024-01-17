@@ -4,8 +4,9 @@ import { FaEdit, FaTrash } from "react-icons/fa";
 import Swal from "sweetalert2";
 import DeleteRecipe from "../DeleteRecipe";
 import UpdateRecipe from "../Updaterecipe";
-import { useDispatch } from "react-redux";
-import { Delete } from "../../config/redux/action/recipeAction";
+import { Link } from "react-router-dom";
+// import { useDispatch } from "react-redux";
+// import { Delete } from "../../config/redux/action/recipeAction";
 
 const MyRecipe = () => {
   const [selectedRecipeId, setSelectedRecipeId] = useState(null);
@@ -14,7 +15,7 @@ const MyRecipe = () => {
   // const { recipe_id } = useParams();
   // const navigate = useNavigate();
   const [showEditModal, setShowEditModal] = useState(false);
-  const dispatch = useDispatch;
+  // const dispatch = useDispatch;
 
   const handleSearch = async () => {
     try {
@@ -43,10 +44,10 @@ const MyRecipe = () => {
 
   const handleDelete = async () => {
     try {
-      // await axios.delete(
-      //   `${import.meta.env.VITE_API_URL}/deleterecipe/${selectedRecipeId}`
-      // );
-      await dispatch(Delete(selectedRecipeId));
+      await axios.delete(
+        `${import.meta.env.VITE_API_URL}/deleterecipe/${selectedRecipeId}`
+      );
+      // await dispatch(Delete(selectedRecipeId));
       Swal.fire({
         icon: "success",
         title: "Success",
@@ -73,7 +74,7 @@ const MyRecipe = () => {
           {recipes?.map((recipeItem) => (
             <div key={recipeItem.recipe_id} className="col">
               <div className="card">
-                <a className="popular-recipe">
+                <Link to="/profile" className="popular-recipe">
                   <img
                     src={recipeItem.picture}
                     className="card-img"
@@ -105,7 +106,7 @@ const MyRecipe = () => {
                       </button>
                     </div>
                   </div>
-                </a>
+                </Link>
               </div>
             </div>
           ))}

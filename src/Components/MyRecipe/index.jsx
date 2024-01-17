@@ -4,6 +4,8 @@ import { FaEdit, FaTrash } from "react-icons/fa";
 import Swal from "sweetalert2";
 import DeleteRecipe from "../DeleteRecipe";
 import UpdateRecipe from "../Updaterecipe";
+import { useDispatch } from "react-redux";
+import { Delete } from "../../config/redux/action/recipeAction";
 
 const MyRecipe = () => {
   const [selectedRecipeId, setSelectedRecipeId] = useState(null);
@@ -12,6 +14,7 @@ const MyRecipe = () => {
   // const { recipe_id } = useParams();
   // const navigate = useNavigate();
   const [showEditModal, setShowEditModal] = useState(false);
+  const dispatch = useDispatch;
 
   const handleSearch = async () => {
     try {
@@ -40,9 +43,10 @@ const MyRecipe = () => {
 
   const handleDelete = async () => {
     try {
-      await axios.delete(
-        `${import.meta.env.VITE_API_URL}/deleterecipe/${selectedRecipeId}`
-      );
+      // await axios.delete(
+      //   `${import.meta.env.VITE_API_URL}/deleterecipe/${selectedRecipeId}`
+      // );
+      await dispatch(Delete(selectedRecipeId));
       Swal.fire({
         icon: "success",
         title: "Success",
@@ -69,7 +73,7 @@ const MyRecipe = () => {
           {recipes?.map((recipeItem) => (
             <div key={recipeItem.recipe_id} className="col">
               <div className="card">
-                <a href="#" className="popular-recipe">
+                <a className="popular-recipe">
                   <img
                     src={recipeItem.picture}
                     className="card-img"

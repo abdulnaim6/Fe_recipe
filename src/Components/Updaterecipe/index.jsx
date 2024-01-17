@@ -1,46 +1,36 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
 import { Form } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Swal from "sweetalert2";
+import { useDispatch } from "react-redux";
+import { Update } from "../../config/redux/action/recipeAction";
 
 function UpdateRecipe({ show, onHide, recipeId }) {
+  const dispatch = useDispatch();
   const [recipe, setRecipe] = useState({
     name_food: "",
     ingrediens: "",
     picture: "",
     video: "",
   });
-  const [saveImage, setSaveImage] = useState("");
   const [isError, setIsError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-  const [isSuccess, setIsSuccess] = useState(false);
 
-  useEffect(() => {
-    if (isSuccess) {
-      const timeout = setTimeout(() => {
-        window.location.reload();
-      }, 1000);
-
-      return () => clearTimeout(timeout);
-    }
-  }, [isSuccess]);
-
-  useEffect(() => {
-    if (show) {
-      axios
-        .get(`${import.meta.env.VITE_API_URL}/recipe/${recipeId}`)
-        .then((response) => {
-          setRecipe(response.data);
-        })
-        .catch((err) => {
-          console.log(err.message);
-          setIsError(true);
-          setErrorMessage("Failed to fetch recipe data");
-        });
-    }
-  }, [show, recipeId]);
+  // useEffect(() => {
+  // if (show) {
+  //   axios
+  //     .get(`${import.meta.env.VITE_API_URL}/recipe/${recipeId}`)
+  //     .then((response) => {
+  //       setRecipe(response.data);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err.message);
+  //       setIsError(true);
+  //       setErrorMessage("Failed to fetch recipe data");
+  //     });
+  // }
+  // }, [show, recipeId]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -52,33 +42,28 @@ function UpdateRecipe({ show, onHide, recipeId }) {
 
   const handleUpload = (e) => {
     const uploader = e.target.files[0];
-    setSaveImage(uploader);
+    setRecipe({
+      ...recipe,
+      picture: uploader,
+    });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     const recipeUpdate = new FormData();
     recipeUpdate.append("name_food", recipe.name_food);
-    recipeUpdate.append("picture", saveImage);
+    recipeUpdate.append("picture", recipe.picture);
     recipeUpdate.append("ingrediens", recipe.ingrediens);
     recipeUpdate.append("video", recipe.video);
 
     try {
-      const response = await axios.put(
-        `${import.meta.env.VITE_API_URL}/updaterecipe/${recipeId}`,
-        recipeUpdate
-      );
-
-      // Tampilkan SweetAlert setelah berhasil mengupdate resep
+      await dispatch(Update(recipeId));
       Swal.fire({
         icon: "success",
         title: "Success",
         text: "Recipe has been updated successfully!",
       });
-      setIsSuccess(true);
-      console.log(response);
-      onHide(); // Menutup modal setelah berhasil update
+      onHide();
     } catch (err) {
       console.log(err.message);
       setIsError(true);

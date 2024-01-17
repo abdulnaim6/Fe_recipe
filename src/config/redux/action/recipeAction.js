@@ -52,10 +52,10 @@ export const GetRecipeByID =
     }
   };
 
-export const Update = (data) => async (dispatch) => {
+export const Update = (recipe_id) => async (dispatch) => {
   try {
     dispatch({ type: "UPDATE_RECIPE_REQUEST" });
-    const response = await api.put("/updaterecipe", data);
+    const response = await api.put(`/updaterecipe/${recipe_id}`);
     const recipe = response.data;
     dispatch({ type: "UPDATE_RECIPE_SUCCESS", payload: recipe });
     return recipe;

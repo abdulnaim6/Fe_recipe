@@ -8,14 +8,29 @@ import Addrecipe from "../Page/Addrecipe";
 import Profile from "../Page/Profile";
 import Searchpage from "../Page/Searchpage";
 import ProtectRoute from "../Components/ProductRoute";
+import PublicRoute from "../Components/PublicRoute";
 
 const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
         <Route index element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+        <Route
+          path="/login"
+          element={
+            <PublicRoute>
+              <Login />
+            </PublicRoute>
+          }
+        />
+        <Route
+          path="/register"
+          element={
+            <PublicRoute>
+              <Register />
+            </PublicRoute>
+          }
+        />
         <Route path="/detailrecipe/:recipe_id" element={<Detailrecipe />} />
         <Route path="/detailvideo/:recipe_id" element={<Detailvideo />} />
         <Route

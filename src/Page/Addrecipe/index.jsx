@@ -137,7 +137,7 @@ const Addrecipe = () => {
                   id="Video"
                   className="form-control"
                   type="text"
-                  placeholder="Video"
+                  placeholder="Link Video Youtube"
                   aria-label="form-control-lg example"
                   name="video"
                   value={data.video}

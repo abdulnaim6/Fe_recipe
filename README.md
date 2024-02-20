@@ -76,6 +76,55 @@ Start the project
 
 ## Screenshot
 
+<details>
+  <summary>
+    Login
+  </summary>
+<img src="./screenshot/login.png" alt="Login Page" />
+</details>
+<details>
+  <summary>
+    Register
+  </summary>
+<img src="./screenshot/register.png" alt="Register Page" />
+</details>
+<details>
+  <summary>
+    Home
+  </summary>
+<img src="./screenshot/home.png" alt="Home Page" />
+</details>
+<details>
+  <summary>
+    Search
+  </summary>
+<img src="./screenshot/searchpage.png" alt="Search Page" />
+</details>
+<details>
+  <summary>
+    Detail Recipe
+  </summary>
+<img src="./screenshot/detailrecipe.png" alt="detail recipe Page" />
+</details>
+<details>
+  <summary>
+    Detail Video
+  </summary>
+<img src="./screenshot/video.png" alt="detail video Page" />
+</details>
+<details>
+  <summary>
+    Add Recipe
+  </summary>
+<img src="./screenshot/addRecipe.png" alt="addrecipe Page" />
+</details>
+<details>
+  <summary>
+    Profile
+  </summary>
+<!-- <img src="screenshot/profile.png" alt="profile Page" /> -->
+</details>
+
 ## Authors
 
 💻 [Abdul Naim](https://github.com/abdulnaim6)
@@ -83,6 +132,7 @@ Start the project
 <br />
 
 ## Related Project
+
 ⚡[`Responsive Web`](https://github.com/abdulnaim6/Responsive_web)⚡
 
 ⚡[`Backend Recipe`](https://github.com/abdulnaim6/Be_recipe)⚡

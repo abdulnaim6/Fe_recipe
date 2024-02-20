@@ -20,10 +20,10 @@ const DetailRecipe = () => {
     const fetchRecipe = async () => {
       try {
         const response = await axios.get(
-          `${import.meta.env.VITE_API_URL}/recipe/${recipe_id}`
+          `${import.meta.env.VITE_API_URL}/recipe/1`
         );
         console.log(response.data);
-        setRecipe(response.data.data[0]);
+        setRecipe(response.data[0]);
       } catch (error) {
         console.error("Failed to fetch recipe:", error);
       }

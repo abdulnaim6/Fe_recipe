@@ -82,7 +82,10 @@ const MyRecipe = () => {
                     style={{ height: "200px", objectFit: "cover" }}
                   />
                   <div className="card-img-overlay">
-                    <h5 className="card-title position-absolute bottom-0">
+                    <h5
+                      className="card-title position-absolute bottom-0"
+                      style={{ backgroundColor: "yellow" }}
+                    >
                       {recipeItem.name_food}
                     </h5>
 

@@ -98,7 +98,7 @@ Start the project
   <summary>
     Search
   </summary>
-<img src="./screenshot/searchpage.png" alt="Search Page" />
+<img src="./screenshot/searchpage (2).png" alt="Search Page" />
 </details>
 <details>
   <summary>

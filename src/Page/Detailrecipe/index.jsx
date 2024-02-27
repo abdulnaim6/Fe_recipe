@@ -7,20 +7,19 @@ import { useNavigate, useParams } from "react-router-dom";
 import { FaPlay } from "react-icons/fa";
 import img1 from "../../assets/Ellipse 127 (1).svg";
 
-const DetailRecipe = () => {
-  const navigate = useNavigate();
-  const { recipe_id } = useParams();
+const DetailRecipe = ({ navigation, route }) => {
+  const { recipe_id } = route.params;
   const [recipe, setRecipe] = useState("");
 
   const handleClick = (recipe_id) => {
-    navigate(`/detailvideo/${recipe_id}`);
+    navigation.navigate("DetailVideo", { recipe_id });
   };
 
   useEffect(() => {
     const fetchRecipe = async () => {
       try {
         const response = await axios.get(
-          `${import.meta.env.VITE_API_URL}/recipe/1`
+          `https://be-recipe-two.vercel.app/recipe/${recipe_id}`
         );
         console.log(response.data);
         setRecipe(response.data[0]);
@@ -29,7 +28,7 @@ const DetailRecipe = () => {
       }
     };
     fetchRecipe();
-  }, []);
+  }, [recipe_id]);
 
   return (
     <>

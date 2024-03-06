@@ -6,6 +6,7 @@ import Cards from "../../Components/Card";
 import { Link, useNavigate } from "react-router-dom";
 import Footer from "../../Components/Footer";
 import RecipeList from "../../Components/Recipe";
+import { AiOutlineSearch } from "react-icons/ai";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -87,22 +88,20 @@ const Home = () => {
             <div className="row align-items-center">
               <div className="col-lg-5 col-md-12 ">
                 <h1 className="awal">Discover Recipe & Delicious Food</h1>
-                <div className="button-search" style={{ height: "30px" }}>
-                  <input
-                    className=""
-                    list="datalistOptions"
-                    id="exampleDataList"
-                    placeholder="Type to search..."
-                    onClick={handleSearchClick}
-                  />
-                  <datalist list id="datalistOptions">
-                    <option value="Chicken Kare" />
-                    <option value="Bomb Chicken" />
-                    <option value="Banana Smothie Pop" />
-                    <option value="Cofee Lava Cake" />
-                    <option value="Sugar Salmon" />
-                    <option value="Indian Salad" />
-                  </datalist>
+                <div className="container mt-5 d-flex justify-content-between">
+                  <div className="input-group flex-grow-1 me-2 w-50">
+                    <input
+                      type="text"
+                      className="form-control form-control-md"
+                      placeholder="Search Restaurant Food"
+                      aria-label=".form-control-lg example"
+                      name="searchQuery"
+                      onClick={handleSearchClick}
+                    />
+                    <span className="input-group-text px-3">
+                      <AiOutlineSearch />
+                    </span>
+                  </div>
                 </div>
               </div>
               <div className="col-lg-7 col-md-12">

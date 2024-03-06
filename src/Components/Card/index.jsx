@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Container, Row, Col, Button } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import img1 from "../../assets/Popular For You.png";
 import img2 from "../../assets/Rectangle 327.png";
 import "./style.css";
@@ -32,51 +32,51 @@ const Cards = () => {
         </Container>
       </Container>
 
-      <Container fluid className="my-5">
-        <Container>
-          <Row className="align-items-center">
-            <Col md={12} lg={4} offset-lg={1}>
-              <img src={img1} alt="" className="img-fluid" />
-            </Col>
-            <Col md={12} lg={5} offset-lg={1}>
-              <h1 className="h1">Healthy Sandwitch (Quick & Easy)</h1>
-              <p className="p1">Quick + Easy Sanwitch. Very yummy.</p>
-              <Button className="btn btn-warning">
+      <div className="container-fluid my-5">
+        <div className="container">
+          <div className="d-flex">
+            <div className="col-md-12 col-lg-4 offset-lg-1">
+              <img src={img1} alt="" style={{ height: 450, width: 450 }} />
+            </div>
+            <div className="col-md-12 col-lg-5 offset-lg-1">
+              <h1 className="h1">Healthy Sandwich (Quick & Easy)</h1>
+              <p className="p1">Quick + Easy Sandwich. Very yummy.</p>
+              <button className="btn btn-warning">
                 <a href="detailrecipe.html">Learn More</a>
-              </Button>
-            </Col>
-          </Row>
-        </Container>
-      </Container>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
 
-      <Container fluid className="my-5">
-        <Container>
-          <Row>
-            <Col>
+      <div className="container-fluid my-5">
+        <div className="container">
+          <div className="row">
+            <div className="col">
               <h2 className="pop">New Recipe</h2>
-            </Col>
-          </Row>
-        </Container>
-      </Container>
+            </div>
+          </div>
+        </div>
+      </div>
 
-      <Container fluid className="my-5">
-        <Container>
-          <Row className="align-items-center">
-            <Col md={12} lg={4} offset-lg={1}>
-              <img src={img2} alt="" className="img-fluid" />
-            </Col>
-            <Col lg={5} offset-lg={1}>
+      <div className="container-fluid mt-5">
+        <div className="container">
+          <div className="row align-items-center">
+            <div className="col-md-12 col-lg-4 offset-lg-1 order-lg-first">
+              <img src={img2} alt="" style={{ height: 450, width: 450 }} />
+            </div>
+            <div className="col-lg-5 offset-lg-1 text-left">
               <h1 className="h1">Healthy Donut (Quick & Easy)</h1>
               <p className="p1">
                 Quick + Easy Donut - Healthy Donut in a hurry? That’s right!
               </p>
-              <Button className="btn btn-warning">
+              <button className="btn btn-warning">
                 <a href="#">Learn More</a>
-              </Button>
-            </Col>
-          </Row>
-        </Container>
-      </Container>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <Container fluid className="my-5">
         <Container>

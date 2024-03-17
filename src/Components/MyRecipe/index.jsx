@@ -28,10 +28,10 @@ const MyRecipe = () => {
     handleSearch();
   }, []);
 
-  const handleUpdateClick = (recipe_id) => {
-    setSelectedRecipeId(recipe_id);
-    setShowEditModal(true);
-  };
+  // const handleUpdateClick = (recipe_id) => {
+  //   setSelectedRecipeId(recipe_id);
+  //   setShowEditModal(true);
+  // };
 
   const handleDeleteClick = (recipeId) => {
     setSelectedRecipeId(recipeId);

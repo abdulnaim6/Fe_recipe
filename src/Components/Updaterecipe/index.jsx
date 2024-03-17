@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Form } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
@@ -13,17 +13,18 @@ function UpdateRecipe({ show, onHide, recipeId }) {
     ingrediens: "",
     picture: "",
     video: "",
+    users_id: localStorage.getItem("userId"),
   });
 
   const [isError, setIsError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
-    if (show) {
+    if (show && recipeId) {
       axios
         .get(`${import.meta.env.VITE_API_URL}/recipe/${recipeId}`)
         .then((response) => {
-          setRecipe(response.data);
+          setRecipe(response.data.data[0]);
         })
         .catch((err) => {
           console.log(err.message);
@@ -56,11 +57,19 @@ function UpdateRecipe({ show, onHide, recipeId }) {
     recipeUpdate.append("picture", recipe.picture);
     recipeUpdate.append("ingrediens", recipe.ingrediens);
     recipeUpdate.append("video", recipe.video);
+    recipeUpdate.append("users_id", recipe.users_id);
+
+    // // Validasi bahwa semua bidang telah diisi
+    // if (!recipe.name_food || !recipe.ingrediens || !recipe.video) {
+    //   setIsError(true);
+    //   setErrorMessage("Please fill in all required fields");
+    //   return;
+    // }
 
     try {
       await axios.put(
         `${import.meta.env.VITE_API_URL}/updaterecipe/${recipeId}`,
-        recipeUpdate
+        recipe
       );
       Swal.fire({
         icon: "success",
@@ -82,6 +91,7 @@ function UpdateRecipe({ show, onHide, recipeId }) {
       </Modal.Header>
 
       <Modal.Body>
+        {isError && <p>{errorMessage}</p>}
         <Form.Group controlId="formProfilePicture">
           <Form.Label>Recipe Picture</Form.Label>
           <Form.Control type="file" onChange={handleUpload} />
@@ -93,7 +103,6 @@ function UpdateRecipe({ show, onHide, recipeId }) {
             type="text"
             placeholder="Edit name food"
             name="name_food"
-            value={recipe.name_food}
             onChange={handleChange}
             aria-label=".form-control-lg example"
           />
@@ -104,7 +113,6 @@ function UpdateRecipe({ show, onHide, recipeId }) {
             type="text"
             placeholder="Edit ingredients"
             name="ingrediens"
-            value={recipe.ingrediens}
             onChange={handleChange}
             aria-label=".form-control-lg example"
           />
@@ -115,7 +123,6 @@ function UpdateRecipe({ show, onHide, recipeId }) {
             type="text"
             placeholder="Edit video"
             name="video"
-            value={recipe.video}
             onChange={handleChange}
             aria-label=".form-control-lg example"
           />

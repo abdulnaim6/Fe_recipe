@@ -87,7 +87,7 @@ const MyRecipe = () => {
 
                       <div className="position-absolute top-0 end-0">
                         {/* Tombol Edit */}
-                        <button
+                        {/* <button
                           style={{ width: "40px", height: "40px" }}
                           className="btn btn-outline-primary mx-2"
                           onClick={() =>
@@ -95,7 +95,7 @@ const MyRecipe = () => {
                           }
                         >
                           <FaEdit />
-                        </button>
+                        </button> */}
 
                         {/* Tombol Delete */}
                         <button

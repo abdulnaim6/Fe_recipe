@@ -3,7 +3,7 @@ import axios from "axios";
 import { FaEdit, FaTrash } from "react-icons/fa";
 import Swal from "sweetalert2";
 import DeleteRecipe from "../DeleteRecipe";
-import UpdateRecipe from "../UpdateRecipe";
+// import UpdateRecipe from "../Updaterecipe";
 import { Link } from "react-router-dom";
 
 const MyRecipe = () => {
@@ -121,11 +121,11 @@ const MyRecipe = () => {
         onHide={() => setShowModal(false)}
         onConfirm={handleDelete}
       />
-      <UpdateRecipe
+      {/* <UpdateRecipe
         show={showEditModal}
         onHide={() => setShowEditModal(false)}
         recipeId={selectedRecipeId}
-      />
+      /> */}
     </div>
   );
 };

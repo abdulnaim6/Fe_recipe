@@ -122,7 +122,7 @@ Start the project
   <summary>
     Profile
   </summary>
-<!-- <img src="screenshot/profile.png" alt="profile Page" /> -->
+<img src="./screenshot/profile.png" alt="profile Page" />
 </details>
 
 ## Authors

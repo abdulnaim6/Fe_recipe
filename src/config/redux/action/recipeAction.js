@@ -1,9 +1,31 @@
 import api from "../../api";
 
-export const InputRecipe = (data) => async (dispatch) => {
+// export const InputRecipe = (data) => async (dispatch) => {
+//   try {
+//     dispatch({ type: "CREATE_RECIPE_REQUEST" });
+//     const response = await api.post("/addrecipe", data);
+//     const recipe = response.data;
+//     dispatch({ type: "CREATE_RECIPE_SUCCESS", payload: recipe });
+//     return recipe;
+//   } catch (error) {
+//     dispatch({
+//       type: "CREATE_RECIPE_FAILURE",
+//       payload: error.response.data.message,
+//     });
+//     throw error.response;
+//   }
+// };
+
+export const InputRecipe = (data, userId) => async (dispatch) => {
   try {
+    const storedUserId = localStorage.getItem("userId");
+    const finalUserId = storedUserId || userId;
     dispatch({ type: "CREATE_RECIPE_REQUEST" });
-    const response = await api.post("/addrecipe", data);
+    const headers = {
+      "user-id": finalUserId,
+    };
+    const response = await api.post("/addrecipe", data, { headers });
+
     const recipe = response.data;
     dispatch({ type: "CREATE_RECIPE_SUCCESS", payload: recipe });
     return recipe;
@@ -68,20 +90,20 @@ export const GetRecipeByID =
 //   }
 // };
 
-// export const Delete =
-//   ({ recipe_id }) =>
-//   async (dispatch) => {
-//     try {
-//       dispatch({ type: "DELETE_RECIPE_REQUEST" });
-//       const response = await api.put(`/deleterecipe/${recipe_id}`);
-//       const recipe = response.data;
-//       dispatch({ type: "DELETE_RECIPE_SUCCESS", payload: recipe });
-//       return recipe;
-//     } catch (error) {
-//       dispatch({
-//         type: "DELETE_RECIPE_FAILURE",
-//         payload: error.response.data.message,
-//       });
-//       throw error.response;
-//     }
-// };
+export const Delete =
+  ({ recipe_id }) =>
+  async (dispatch) => {
+    try {
+      dispatch({ type: "DELETE_RECIPE_REQUEST" });
+      const response = await api.delete(`/deleterecipe/${recipe_id}`);
+      const recipe = response.data;
+      dispatch({ type: "DELETE_RECIPE_SUCCESS", payload: recipe });
+      return recipe;
+    } catch (error) {
+      dispatch({
+        type: "DELETE_RECIPE_FAILURE",
+        payload: error.response.data.message,
+      });
+      throw error.response;
+    }
+  };

@@ -1,34 +1,37 @@
+/* eslint-disable react/prop-types */
 import { useState, useEffect } from "react";
 import "./style.css";
 import axios from "axios";
 import MyNavbar from "../../Components/Navbar";
 import Footer from "../../Components/Footer";
-import { useNavigate, useParams } from "react-router-dom";
 import { FaPlay } from "react-icons/fa";
 import img1 from "../../assets/Ellipse 127 (1).svg";
+import { Link, useParams } from "react-router-dom";
 
-const DetailRecipe = ({ navigation, route }) => {
-  const { recipe_id } = route.params;
-  const [recipe, setRecipe] = useState("");
-
-  const handleClick = (recipe_id) => {
-    navigation.navigate("DetailVideo", { recipe_id });
-  };
+const DetailRecipe = () => {
+  const { recipe_id } = useParams();
+  const [recipe, setRecipe] = useState(null);
 
   useEffect(() => {
     const fetchRecipe = async () => {
       try {
-        const response = await axios.get(
-          `https://be-recipe-two.vercel.app/recipe/${recipe_id}`
-        );
-        console.log(response.data);
-        setRecipe(response.data[0]);
+        if (recipe_id) {
+          const response = await axios.get(
+            `https://be-recipe-two.vercel.app/recipe/${recipe_id}`
+          );
+          console.log(response.data);
+          setRecipe(response.data.data[0]);
+        }
       } catch (error) {
         console.error("Failed to fetch recipe:", error);
       }
     };
     fetchRecipe();
   }, [recipe_id]);
+
+  if (!recipe) {
+    return <p>Loading...</p>;
+  }
 
   return (
     <>
@@ -59,16 +62,17 @@ const DetailRecipe = ({ navigation, route }) => {
         <div className="container-fluid">
           <div className="container d-flex flex-column">
             <div className="row" style={{ marginBottom: "2.9069rem" }}>
-              <div className="col-xl-12">{/* <h2>{recipe.video}</h2> */}</div>
-              <button
-                type="button"
-                className="btn btn-warning btn-lg"
-                style={{ marginBottom: "20px", width: "500px" }}
-                onClick={() => handleClick(recipe_id)}
-              >
-                {/* <img src="./assets/play.svg" alt="" /> */}
-                <FaPlay />
-              </button>
+              <div className="col-xl-12"></div>
+              <Link to={`/detailvideo/${recipe.recipe_id}`}>
+                <button
+                  type="button"
+                  className="btn btn-warning btn-lg"
+                  style={{ marginBottom: "20px", width: "500px" }}
+                  // onClick={() => handleClick(recipe_id)}
+                >
+                  <FaPlay />
+                </button>
+              </Link>
             </div>
             <div className="container-fluid">
               <div className="container d-flex flex-column">

@@ -17,6 +17,7 @@ const Addrecipe = () => {
     picture: "",
     ingrediens: "",
     video: "",
+    users_id: localStorage.getItem("userId"),
   });
   const [isError, setIsError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
@@ -38,12 +39,18 @@ const Addrecipe = () => {
   };
 
   const handleSubmit = async (e) => {
+    if (!data.users_id) {
+      setIsError(true);
+      setErrorMessage("User ID is missing");
+      return;
+    }
     e.preventDefault();
     const productData = new FormData();
     productData.append("name_food", data.name_food);
     productData.append("picture", data.picture);
     productData.append("ingrediens", data.ingrediens);
     productData.append("video", data.video);
+    productData.append("users_id", data.users_id);
 
     try {
       await dispatch(InputRecipe(productData));

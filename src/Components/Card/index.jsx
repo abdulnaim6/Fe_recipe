@@ -93,7 +93,10 @@ const Cards = () => {
             <div className="col">
               {recipe?.rows?.map((item) => (
                 <div className="card" key={item.recipe_id}>
-                  <Link to="/detailrecipe" className="popular-recipe">
+                  <Link
+                    to={`/detailrecipe/${item.recipe_id}`}
+                    className="popular-recipe"
+                  >
                     <img src={item.picture} alt="..." className="card-img " />
                     <div className="card-overlay">
                       <h5 className="card-title position-absolute bottom-0">

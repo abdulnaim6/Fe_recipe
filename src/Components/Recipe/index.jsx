@@ -3,44 +3,63 @@ import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 
 const RecipeList = () => {
-  const [recipe, setRecipe] = useState([]);
-  const [searchQuery, setSearchQuery] = useState("");
-  const [sort, setSort] = useState("ASC");
+  const [recipes, setRecipes] = useState([]);
+  const [limit, setLimit] = useState(6);
+  const [page, setPage] = useState(1);
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
 
-  const handleSearch = async () => {
-    // navigate(`/search?keyword=${searchQuery}&sort=${sort}`);
+  const fetchData = async () => {
+    setLoading(true);
     try {
-      const newData = await axios.get(
-        `${
-          import.meta.env.VITE_API_URL
-        }/search?sort=${sort}&keyword=${searchQuery}`
+      const response = await axios.get(
+        `${import.meta.env.VITE_API_URL}/paginate?page=${page}&limit=${limit}`
       );
-      setRecipe(newData.data);
+      if (
+        response.data &&
+        response.data.result &&
+        response.data.result.result &&
+        Array.isArray(response.data.result.result.rows)
+      ) {
+        if (page === 1) {
+          setRecipes(response.data.result.result.rows);
+        } else {
+          setRecipes(response.data.result.result.rows);
+        }
+      } else {
+        console.error("Invalid response format: Data is not an array");
+      }
     } catch (error) {
-      console.log(error);
+      console.error("Error fetching recipes:", error.message);
+    } finally {
+      setLoading(false);
     }
   };
 
-  const handleClick = (recipe_id) => {
-    console.log("Clicked on recipe with ID:", recipe_id);
-    navigate(`/detailrecipe/${recipe_id}`);
-  };
   useEffect(() => {
-    handleSearch();
-  }, []);
+    fetchData();
+  }, [page, limit]);
+
+  const handleNextPage = () => {
+    setPage(page + 1);
+  };
+
+  const handlePreviousPage = () => {
+    if (page > 1) {
+      setPage(page - 1);
+    }
+  };
 
   return (
     <div className="container-fluid">
       <div className="container">
         <div className="row row-cols-1 row-cols-md-3 g-4">
-          {recipe?.rows?.map((recipeItem) => (
+          {recipes.map((recipeItem) => (
             <div key={recipeItem.recipe_id} className="col">
               <div className="card">
                 <Link
                   to={`/detailrecipe/${recipeItem.recipe_id}`}
                   className="popular-recipe"
-                  // onClick={() => handleClick(recipeItem.recipe_id)}
                 >
                   <img
                     src={recipeItem.picture}
@@ -61,6 +80,24 @@ const RecipeList = () => {
             </div>
           ))}
         </div>
+        <div className="pagination" style={{ marginTop: 10 }}>
+          <button
+            className="btn btn-warning"
+            onClick={handlePreviousPage}
+            style={{ height: 40, width: 80, marginRight: 10 }}
+            disabled={page === 1}
+          >
+            Previous
+          </button>
+          <button
+            className="btn btn-warning"
+            onClick={handleNextPage}
+            style={{ height: 40, width: 80 }}
+          >
+            Next
+          </button>
+        </div>
+        {loading && <p>Loading...</p>}
       </div>
     </div>
   );
